@@ -1,0 +1,18 @@
+name: {{ cookiecutter.repo_name }}
+channels:
+  - conda-forge
+  - anaconda
+dependencies:
+  - python=3.7
+  - awscli
+  - click
+  - coverage
+  - Cython
+  - dvc
+  - jupyterlab
+  - pre_commit
+  - sphinx
+  - pip
+  - pip:
+      - optuna
+      - python-dotenv>=0.5.1

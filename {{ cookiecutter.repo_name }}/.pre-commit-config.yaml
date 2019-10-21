@@ -1,0 +1,22 @@
+repos:
+-   repo: https://github.com/psf/black
+    rev: stable
+    hooks:
+      - id: black
+        language_version: python{{ cookiecutter.python_interpreter }}
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    rev: v1.4.0
+    hooks:
+    -   id: flake8
+        exclude: (^tests/.*\.py$|docs/conf.py|setup.py)
+        args:
+        - --ignore=E203,E266,E501,W503,F403,F401
+    -   id: check-added-large-files
+-   repo: git://github.com/pre-commit/mirrors-pylint
+    rev: v2.3.0
+    hooks:
+    -   id: pylint
+        exclude: (^tests/.*\.py$|docs/conf.py|setup.py)
+        args:
+        - --errors-only
+        - --disable=import-error

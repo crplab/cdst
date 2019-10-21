@@ -1,0 +1,16 @@
+# local package
+-e .
+
+# external requirements
+awscli
+click
+coverage
+Cython
+dvc
+jupyterlab
+pre-commit
+Sphinx
+python-dotenv>=0.5.1
+optuna
+
+# project-specific stuff

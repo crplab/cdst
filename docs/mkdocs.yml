@@ -1,10 +1,9 @@
-site_name: Cookiecutter Data Science
+site_name: Cookiecutter Data Science [crplab]
 site_description: A project template and directory structure for Python data science projects.
 site_favicon: favicon.ico
-repo_url: https://github.com/drivendata/cookiecutter-data-science
+repo_url: https://github.com/crplab/cdst
 edit_uri: edit/master/docs/docs
-copyright: Project maintained by the friendly folks at <a target=_blanks href="https://www.drivendata.org">DrivenData</a>.
-google_analytics: ['UA-54096005-4', 'auto']
+copyright: Project maintained by <a target=_blanks href="https://www.crplab.ru">CRPLAB</a>.
 theme: cinder
 extra_css:
   - css/extra.css

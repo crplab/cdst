@@ -24,7 +24,6 @@ The directory structure of your new project will look like this:
 ```
 ├── LICENSE
 ├── Makefile                    <- Makefile with commands like `make init` or `make clean`
-├── make.bat                    <- It's like the Makefile, but for Windows
 ├── README.md                   <- The top-level README for developers using this project.
 ├── data
 │   ├── external                <- Data from third party sources.

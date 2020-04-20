@@ -31,7 +31,7 @@ __Project structure__:
 ├── reports                     <- Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── figures                 <- Generated graphics and figures to be used in reporting
 │
-├── .conda-env.yml              <- conda environment definition
+├── conda.yml                   <- conda environment definition
 │   
 ├── .pre-commit-config.yaml     <- pre-commit configuration
 │

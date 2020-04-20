@@ -18,18 +18,15 @@ clean:
 ## Initial set up of python interpreter environment, version control and pre-commit hooks
 init:
 	@bash -c "conda env create -f .conda-env.yml"
-	@bash -c "git init"
+	@bash -c "git init; conda init bash"
 	@bash -c "conda activate $(PROJECT_NAME); dvc init"
 	@bash -c "echo '[core]' >> $(PROJECT_DIR)/.dvc/config"
 	@bash -c "echo 'analytics = false' >> $(PROJECT_DIR)/.dvc/config"
 	@bash -c "conda activate $(PROJECT_NAME); pre-commit install; pre-commit autoupdate"
 	@bash -c "echo 'CWD=$(PROJECT_DIR)' >> $(PROJECT_DIR)/.env"
 	@bash -c "git add . ; git commit -am 'Initial commit :tada:'"
-	@echo ">>> New virtualenv created. Activate with:\nconda activate $(PROJECT_NAME)"
+	@echo ">>> New conda environment created. Activate with:\nconda activate $(PROJECT_NAME)"
 	@echo ">>> git and dvc are ready to go"
-
-requirements:
-	@bash -c "conda activate $(PROJECT_NAME); pip install -r $(PROJECT_DIR)/requirements.txt"
 
 commit:
 	$(eval EXP_FILE := "$(PROJECT_DIR)/src/study_name.txt")

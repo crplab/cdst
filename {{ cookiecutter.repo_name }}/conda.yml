@@ -3,8 +3,7 @@ channels:
   - conda-forge
   - anaconda
 dependencies:
-  - python=3.7
-  - awscli
+  - python={{ cookiecutter.python_interpreter }}
   - click
   - coverage
   - Cython

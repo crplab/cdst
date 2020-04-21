@@ -9,7 +9,7 @@ __HOW TO USE:__
 
 First of all, install cookiecutter with:
 ```bash
-$ pip install cookiecutter
+$ brew install cookiecutter  # or pip install cookiecutter
 ```
 After that you can use template with:
 ```bash
@@ -46,7 +46,7 @@ The directory structure of your new project will look like this:
 ├── reports                     <- Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── figures                 <- Generated graphics and figures to be used in reporting
 │
-├── .conda-env.yml              <- conda environment definition
+├── conda.yml              <- conda environment definition
 │   
 ├── .pre-commit-config.yaml     <- pre-commit configuration
 │

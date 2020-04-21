@@ -5,6 +5,8 @@
 PROJECT_DIR := $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 PROJECT_NAME = {{ cookiecutter.repo_name }}
 PYTHON_INTERPRETER = {{ cookiecutter.python_interpreter }}
+SHELL=/bin/bash
+CONDA_ACTIVATE=source $$(conda info --base)/etc/profile.d/conda.sh ; conda activate ; conda activate
 
 #################################################################################
 # COMMANDS                                                                      #
@@ -17,25 +19,25 @@ clean:
 
 ## Initial set up of python interpreter environment, version control and pre-commit hooks
 init:
-	@bash -c "conda env create -f .conda-env.yml"
-	@bash -c "git init; conda init bash"
-	@bash -c "conda activate $(PROJECT_NAME); dvc init"
-	@bash -c "echo '[core]' >> $(PROJECT_DIR)/.dvc/config"
-	@bash -c "echo 'analytics = false' >> $(PROJECT_DIR)/.dvc/config"
-	@bash -c "conda activate $(PROJECT_NAME); pre-commit install; pre-commit autoupdate"
-	@bash -c "echo 'CWD=$(PROJECT_DIR)' >> $(PROJECT_DIR)/.env"
-	@bash -c "git add . ; git commit -am 'Initial commit :tada:'"
-	@echo ">>> New conda environment created. Activate with:\nconda activate $(PROJECT_NAME)"
-	@echo ">>> git and dvc are ready to go"
+	conda env create -f conda.yml
+	git init; conda init bash
+	$(CONDA_ACTIVATE) $(PROJECT_NAME); dvc init
+	echo '[core]' >> $(PROJECT_DIR)/.dvc/config
+	echo 'analytics = false' >> $(PROJECT_DIR)/.dvc/config
+	$(CONDA_ACTIVATE) $(PROJECT_NAME); pre-commit install; pre-commit autoupdate
+	echo 'CWD=$(PROJECT_DIR)' >> $(PROJECT_DIR)/.env
+	git add . ; git commit -am 'Initial commit :tada:'
+	echo ">>> New conda environment created. Activate with:\nconda activate $(PROJECT_NAME)"
+	echo ">>> git and dvc are ready to go"
 
 commit:
 	$(eval EXP_FILE := "$(PROJECT_DIR)/src/study_name.txt")
 	$(eval EXP_NAME := $(shell cat ${EXP_FILE}))
-	@bash -c "git commit -am \"completed experiment $(EXP_NAME)\"; git tag -a $(EXP_NAME) -m \"$(EXP_NAME)\""
+	git commit -am \"completed experiment $(EXP_NAME)\"; git tag -a $(EXP_NAME) -m \"$(EXP_NAME)\"
 
 push:
-	@bash -c "git push origin --follow-tags"
-	@bash -c "conda activate $(PROJECT_NAME); dvc push"
+	git push origin --follow-tags
+	conda activate $(PROJECT_NAME); dvc push
 
 #################################################################################
 # PROJECT RULES                                                                 #

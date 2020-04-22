@@ -46,7 +46,7 @@ The directory structure of your new project will look like this:
 ├── reports                     <- Generated analysis as HTML, PDF, LaTeX, etc.
 │   └── figures                 <- Generated graphics and figures to be used in reporting
 │
-├── conda.yml              <- conda environment definition
+├── conda.yml                   <- conda environment definition
 │   
 ├── .pre-commit-config.yaml     <- pre-commit configuration
 │
